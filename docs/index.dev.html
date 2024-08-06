@@ -1,26 +1,26 @@
 <html lang="en">
 <head>
     <title>MongoDBLogToQuery</title>
+    <script type="module"
+            src="../node_modules/@totally-nerdy/tn-code-display/index.js"></script>
+    <script src="../index.js"></script>
     <script type="module">
-      import * as tnMongoLogToQuery from '../index.mjs'
-
       const inputTextarea = document.querySelector('textarea[id="txtInput"]')
       const outputTextarea = document.querySelector('textarea[id="txtOutput"]')
       const button = document.querySelector('button[id="btnParse"]')
       const onParseInput = () => {
-        outputTextarea.value = tnMongoLogToQuery.parse(inputTextarea.value)
+        outputTextarea.value = tnMongoDBLogToQuery(inputTextarea.value)
         outputTextarea.dispatchEvent(new InputEvent('input'))
       }
       const onEmptyInput = () => {
         if (inputTextarea.value === '') {
           outputTextarea.value = ''
+          outputTextarea.dispatchEvent(new InputEvent('input'))
         }
       }
       inputTextarea.addEventListener('keyup', onEmptyInput)
       button.addEventListener('click', onParseInput)
     </script>
-    <script type="module"
-            src="../node_modules/@totally-nerdy/tn-code-display/index.js"></script>
 </head>
 <body>
 <h1>MongoDBLogToQuery</h1>
@@ -35,7 +35,7 @@
     <button id="btnParse">Parse</button>
     <div style="display: flex; flex-direction: column;">
         <label for="txtOutput">MongoDB query:</label>
-        <tn-code-display data-language="json" data-style="default" data-clipboard="true">
+        <tn-code-display data-language="shell" data-style="default" data-clipboard="true">
             <textarea id="txtOutput" rows="10"></textarea>
         </tn-code-display>
     </div>

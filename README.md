@@ -16,4 +16,3 @@ Analyzer (https://www.totally-nerdy.com/blog/post/22487/mongodb-query-analyser/)
 
 - ./docs/index.dev.html is used during local development and points to local dependencies
 - ./docs/index.html is the public example page
-- Distributed as a JavaScript module

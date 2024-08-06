@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <title>MongoDBLogToQuery</title>
+    <script type="importmap">
+        {
+          "imports": {
+            "@totally-nerdy/tn-mdb-log-to-query": "https://cdn.jsdelivr.net/gh/totally-nerdy/tn-mdb-log-to-query@latest/dist/tn-mdb-log-to-query.min.js"
+          }
+        }
+    </script>
+    <script type="module">
+      import * as tnMongoLogToQuery from '@totally-nerdy/tn-mdb-log-to-query'
+
+      const inputTextarea = document.querySelector('textarea[id="txtInput"]')
+      const outputTextarea = document.querySelector('textarea[id="txtOutput"]')
+      const button = document.querySelector('button[id="btnParse"]')
+      const onParseInput = () => {
+        outputTextarea.value = tnMongoLogToQuery.parse(inputTextarea.value)
+        outputTextarea.dispatchEvent(new InputEvent('input'))
+      }
+      const onEmptyInput = () => {
+        if (inputTextarea.value === '') {
+          outputTextarea.value = ''
+        }
+      }
+      inputTextarea.addEventListener('keyup', onEmptyInput)
+      button.addEventListener('click', onParseInput)
+    </script>
+    <script type="module"
+            src="https://cdn.jsdelivr.net/gh/totally-nerdy/tn-code-display@latest/dist/tn-code-display.min.js"></script>
+</head>
+<body>
+<h1>MongoDBLogToQuery</h1>
+<p>
+    Transform one line of MongoDB log to an executable query.
+</p>
+<div style="display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; flex-direction: column;">
+        <label for="txtInput">Log line:</label>
+        <textarea id="txtInput" rows="10"></textarea>
+    </div>
+    <button id="btnParse">Parse</button>
+    <div style="display: flex; flex-direction: column;">
+        <label for="txtOutput">MongoDB query:</label>
+        <tn-code-display data-language="json" data-style="default" data-clipboard="true">
+            <textarea id="txtOutput" rows="10"></textarea>
+        </tn-code-display>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "name": "@totally-nerdy/tn-mdb-log-to-query",
+  "version": "1.0.0",
+  "description": "Transform one line of MongoDB log to an executable query",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx uglifyjs --compress --mangle --source-map --output ./dist/tn-mdb-log-to-query.min.js -- index.mjs"
+  },
+  "keywords": [
+    "mongodb",
+    "log",
+    "json",
+    "format",
+    "query",
+    "parser",
+    "execution"
+  ],
+  "author": "Totally Nerdy Ltd",
+  "license": "MIT",
+  "devDependencies": {
+    "@totally-nerdy/tn-code-display": "^1.4.0",
+    "uglify-js": "^3.19.1"
+  },
+  "engines": {
+    "node": "~20.16",
+    "npm": "~10.8"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/totally-nerdy/tn-mdb-log-to-query.git"
+  },
+  "bugs": {
+    "url": "https://github.com/totally-nerdy/tn-mdb-log-to-query/issues"
+  },
+  "homepage": "https://github.com/totally-nerdy/tn-mdb-log-to-query#readme"
+}
